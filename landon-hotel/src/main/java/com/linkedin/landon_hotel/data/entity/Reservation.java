@@ -3,8 +3,7 @@ package com.linkedin.landon_hotel.data.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
-
-import java.time.LocalDate;
+import java.sql.Date;
 
 @Entity
 @Table(name="reservations")
@@ -21,6 +20,6 @@ public class Reservation {
   @Column(name="guest_id")
   private long guestId;
   @Column(name="res_date")
-  private LocalDate resDate;
+  private Date resDate;
 
 }
