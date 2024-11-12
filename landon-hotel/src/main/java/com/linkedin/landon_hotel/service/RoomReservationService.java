@@ -38,7 +38,7 @@ public class RoomReservationService {
   //-------------------------------------------------------------------------------------------------------------------
   
   public List<RoomReservation> getRoomReservationsForDate(String reservationDate) {
-    Date date = null;
+    Date date;
     if (StringUtil.isNullOrEmpty(reservationDate)) {
       date  = new Date(new java.util.Date().getTime());
     }

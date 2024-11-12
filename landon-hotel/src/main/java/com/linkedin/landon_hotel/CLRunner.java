@@ -1,6 +1,5 @@
 package com.linkedin.landon_hotel;
 
-import com.linkedin.landon_hotel.data.entity.Guest;
 import com.linkedin.landon_hotel.data.entity.Reservation;
 import com.linkedin.landon_hotel.data.entity.Room;
 import com.linkedin.landon_hotel.data.repository.GuestRepository;
