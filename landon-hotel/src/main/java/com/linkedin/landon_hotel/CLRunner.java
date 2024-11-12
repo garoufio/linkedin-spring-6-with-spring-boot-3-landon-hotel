@@ -6,6 +6,8 @@ import com.linkedin.landon_hotel.data.entity.Room;
 import com.linkedin.landon_hotel.data.repository.GuestRepository;
 import com.linkedin.landon_hotel.data.repository.ReservationRepository;
 import com.linkedin.landon_hotel.data.repository.RoomRepository;
+import com.linkedin.landon_hotel.service.RoomReservationService;
+import com.linkedin.landon_hotel.service.model.RoomReservation;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -21,17 +23,20 @@ public class CLRunner implements CommandLineRunner {
   private final RoomRepository roomRepository;
   private final GuestRepository guestRepository;
   private final ReservationRepository reservationRepository;
+  private final RoomReservationService roomReservationService;
   
   //-------------------------------------------------------------------------------------------------------------------
   
   public CLRunner(
       RoomRepository roomRepository,
       GuestRepository guestRepository,
-      ReservationRepository reservationRepository
+      ReservationRepository reservationRepository,
+      RoomReservationService roomReservationService
   ) {
     this.roomRepository = roomRepository;
     this.guestRepository = guestRepository;
     this.reservationRepository = reservationRepository;
+    this.roomReservationService = roomReservationService;
   }
   
   //-------------------------------------------------------------------------------------------------------------------
@@ -63,6 +68,10 @@ public class CLRunner implements CommandLineRunner {
     List<Reservation> reservationsAtDate = reservationRepository
         .findAllByResDate(Date.valueOf(LocalDate.of(2023, Month.AUGUST, 28)));
     reservationsAtDate.forEach(System.out::println);
+    
+    System.out.println("*** Room Reservation Service ***");
+    List<RoomReservation> roomReservations = roomReservationService.getRoomReservationsForDate("2023-08-28");
+    roomReservations.forEach(System.out::println);
   }
   
   //-------------------------------------------------------------------------------------------------------------------
