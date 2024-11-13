@@ -36,7 +36,7 @@ public class OccupancyController {
       }
       catch (Exception e) {
         System.err.println("Date should be formatted as yyyy-MM-dd");
-        e.printStackTrace();
+        System.out.println(e.getMessage());
       }
     }
     model.addAttribute("date", date);
